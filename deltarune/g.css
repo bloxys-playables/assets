@@ -1,0 +1,107 @@
+  :root { --ctrl-scale: 1.3; }
+  *{
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  *:focus {
+    outline: none;
+    -webkit-focus-ring-color: transparent;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .deactivation-warning {
+    text-align: center;
+    color: #ffffff; 
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 20px auto;
+    max-width: 80%;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .deactivation-warning a {
+    color: #ffff00; 
+    text-decoration: underline;
+  }
+
+  #game-frame { 
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+      border: none; z-index: 1; outline: none; display: none;
+  }
+
+  #hud-layer { 
+      position: fixed; inset: 0; z-index: 10; pointer-events: none; 
+      transition: opacity 0.2s; display: none;
+  }
+
+  .touch-group {
+      position: absolute; pointer-events: auto; touch-action: none; 
+      transform: translate(-50%, -50%) scale(var(--ctrl-scale));
+      transform-origin: center; cursor: grab;
+  }
+
+  body.edit-mode .touch-group {
+      border: 2px dashed #00bfff !important;
+      background: rgba(0, 191, 255, 0.2) !important;
+      opacity: 1 !important;
+  }
+
+  #dpad-group { top: 75%; left: 20%; width: 180px; height: 180px; }
+  #btn-z { top: 85%; left: 70%; } #btn-x { top: 75%; left: 80%; } #btn-c { top: 65%; left: 90%; }
+
+  .btn { 
+      background: rgba(255, 255, 255, 0.2); color: white; border: 2px solid rgba(255, 255, 255, 0.4); 
+      border-radius: 50%; display: flex; justify-content: center; align-items: center; 
+      font-weight: bold; font-size: 1.4rem; width: 65px; height: 65px;
+  }
+  .btn.active { background: rgba(255, 255, 255, 0.6); border-color: #fff; }
+  
+  .dpad-container { position: relative; width: 100%; height: 100%; cursor: pointer; }
+  .dpad-btn { 
+      position: absolute; width: 55px; height: 55px; 
+      background: rgba(255, 255, 255, 0.15); border: 2px solid rgba(255,255,255,0.3); 
+      border-radius: 8px; display: flex; align-items: center; justify-content: center; 
+      color: white; pointer-events: none;
+      font-family: "Arial", sans-serif; font-size: 22px; line-height: 1;
+  }
+  #up { top: 0; left: 50%; transform: translateX(-50%); }
+  #down { bottom: 0; left: 50%; transform: translateX(-50%); }
+  #left { left: 0; top: 50%; transform: translateY(-50%); }
+  #right { right: 0; top: 50%; transform: translateY(-50%); }
+
+  #settings-bar { position: fixed; top: 10px; right: 10px; z-index: 50; display: none; gap: 5px; pointer-events: auto; }
+  #settings-bar button { padding: 10px; background: rgba(68, 68, 68, 0.8); color: white; border: 1px solid #777; border-radius: 8px; cursor: pointer; font-family: sans-serif; }
+
+  #settings-panel { 
+      position: fixed; top: 70px; right: 10px; z-index: 49; 
+      background: rgba(0,0,0,0.95); color: white; padding: 20px; 
+      border-radius: 12px; display: none; width: 220px; border: 1px solid #444; pointer-events: auto;
+      font-family: sans-serif;
+  }
+
+  #settings-panel input[type="range"] {
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      background: #444 !important;
+      height: 6px;
+      border-radius: 3px;
+      outline: none;
+  }
+  #settings-panel input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      background: #00bfff !important;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      cursor: pointer;
+  }
+  
+  #loader-screen { position: fixed; inset: 0; background: #111; color: white; display: none; justify-content: center; align-items: center; z-index: 100; font-family: sans-serif; }
