@@ -406,7 +406,7 @@
             document.getElementById('notice-container').innerHTML = `
                 <div class="deactivation-warning">
                     This domain might get deactivated soon. Please export your saves and switch to the new official domain: 
-                    <a href="https://byalvaro19.github.io/deltarune/" target="_blank">byalvaro19.github.io/deltarune/</a>
+                    <a href="https://bloxys-playables.github.io/" target="_blank">bloxys-playables.github.io</a>
                 </div>
             `;
         }
